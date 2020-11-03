@@ -45,14 +45,9 @@ function formulaCount(columns) {
 	var summaryRowCount = results['summary--row-count'] || 0;
 
 	// Transform timestamp to date so we can pivot on the date
-	var date = columns['Timestamp'].split('T')[0];
+	var date = columns['Process start date'].split('T')[0];
 	// Initialize to 0 or increment the count of the date
 	summaryData[date] = (summaryData[date] || 0) + 1;
-
-	if (!(date in summaryData)) {
-		summaryData[date] = 0;
-	}
-	summaryData[date] = summaryData[date] + 1;
 
 	// Store data back into the instance field
 	results['summary--row-count'] = summaryRowCount + 1;
