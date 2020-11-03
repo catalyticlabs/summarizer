@@ -12,7 +12,7 @@
  * the repl.it sidebar.
  */
 // CHANGE THIS VARIABLE TO USE A DIFFERENT CSV FILE
-var csvFile = 'Events.csv';
+var csvFile = 'Table.csv';
 
 var results = {};
 
@@ -68,9 +68,9 @@ function formulaStacked(columns) {
 	var summaryRowCount = results['summary--row-count'] || 0;
 
 	// Transform timestamp to date so we can pivot on the date
-	var date = columns['Timestamp'].split('T')[0];
+	var date = columns['Process start date'].split('T')[0];
 	// Need to get the system
-	var system = columns['System'];
+	var system = columns['Instance owner email'];
 	// Initialize the first key (date) if needed
 	summaryData[date] = summaryData[date] || {};
 	// Increment the second key (system) or initialize
@@ -92,7 +92,7 @@ function formulaUnique(columns) {
 	var summaryUniqueCount = results['summary--unique-count'] || 0;
 
 	// Transform timestamp to date so we can pivot on the date
-	var date = columns['Timestamp'].split('T')[0];
+	var date = columns['Process start date'].split('T')[0];
 
 	// Check if the date already exists
 	if (!(date in summaryData)) {
