@@ -23,7 +23,7 @@ fs.createReadStream(csvFile)
 	.pipe(csv())
 	.on('data', row => {
 		// CHANGE THIS FUNCTION TO POINT TO OTHER FORMULAS BELOW
-		formulaUnique(row);
+		formulaCount(row);
 	})
 	.on('end', () => {
 		console.log(JSON.stringify(results, null, 2));
